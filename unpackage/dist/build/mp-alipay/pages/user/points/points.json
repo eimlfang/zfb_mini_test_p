@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "积分",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more",
+    "recharge": "/pages/user/points/part/recharge"
+  }
+}

@@ -1,0 +1,3 @@
+.mr15{margin-right:15rpx}.diy-article{background:#fff;margin:20rpx;border-radius:6rpx;padding:0 30rpx;box-shadow:0 8rpx 3rpx 0 rgba(6,0,1,.03)}.diy-article .show-type__10,
+.diy-article .show-type__20{display:flex;padding:30rpx 0;border-bottom:1rpx solid #eee}.diy-article .show-type__10:last-child,
+.diy-article .show-type__20:last-child{border-bottom:none}.diy-article .show-type__10 .picture{width:246rpx;height:140rpx;border-radius:12rpx}.diy-article .show-type__10 .title{height:80rpx}.diy-article .show-type__10 .des{height:36rpx}.diy-article image{width:100%;height:100%;border-radius:12rpx}.diy-article .show-type__10 .icon.iconfont{font-size:18rpx;color:#999}

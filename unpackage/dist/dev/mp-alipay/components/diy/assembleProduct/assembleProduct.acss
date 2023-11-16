@@ -1,0 +1,185 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* start--主题色--start */
+/* end--主题色--end */
+.diy-assembleproduct {
+  margin: 20rpx;
+  border-radius: 6rpx;
+  padding: 0 20rpx 20rpx;
+  box-shadow: 0px 8rpx 3rpx 0px rgba(6, 0, 1, 0.03);
+}
+.theme0 .diy-assembleproduct {
+  background-color: #ffffff !important;
+}
+.theme1 .diy-assembleproduct {
+  background-color: #ffffff !important;
+}
+.theme2 .diy-assembleproduct {
+  background-color: #FFCC00 !important;
+}
+.theme3 .diy-assembleproduct {
+  background-color: #ffffff !important;
+}
+.theme4 .diy-assembleproduct {
+  background-color: #FFFFFF !important;
+}
+.theme5 .diy-assembleproduct {
+  background-color: #C8BB97 !important;
+}
+.theme6 .diy-assembleproduct {
+  background-color: #623CEB !important;
+}
+.diy-assembleproduct .diy-head {
+  height: 90rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-size: 100% 100%;
+}
+.diy-assembleproduct .diy-head .name {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.diy-assembleproduct .diy-head .datetime {
+  margin-left: 40rpx;
+}
+.diy-assembleproduct .diy-head .datetime > ._span {
+  display: inline-block;
+}
+.diy-assembleproduct .diy-head .datetime text {
+  font-size: 24rpx;
+  color: #F6220C;
+}
+.diy-assembleproduct .diy-head .datetime .box {
+  padding: 4rpx;
+  font-size: 22rpx;
+  background: #F6220C;
+  color: #F6220C;
+}
+.diy-assembleproduct .diy-head .icon-jiantou {
+  margin-left: 8rpx;
+  color: #333333;
+  font-size: 22rpx;
+}
+.diy-assembleproduct .product-list {
+  flex-wrap: nowrap;
+}
+.diy-assembleproduct .product-list .product-item {
+  flex-shrink: 0;
+  border-radius: 12rpx;
+  width: 442rpx;
+  overflow: hidden;
+}
+.diy-assembleproduct .product-list image {
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f6;
+}
+.diy-assembleproduct .product-list .product-title {
+  font-size: 24rpx;
+  line-height: 36rpx;
+  color: #333333;
+  height: 72rpx;
+}
+.diy-assembleproduct .product-list .product-price {
+  margin-bottom: 16rpx;
+  text-align: left;
+}
+.diy-assembleproduct .product-list.column__3 .product-title {
+  font-size: 24rpx;
+  line-height: 36rpx;
+  color: #333333;
+  height: 72rpx;
+  margin-bottom: 14rpx;
+}
+.diy-assembleproduct .product-list.column__2,
+.diy-assembleproduct .product-list.column__3 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.diy-assembleproduct .product-list .assemble-num {
+  padding: 4rpx 16rpx;
+  font-size: 24rpx;
+  color: #ffffff;
+  position: absolute;
+  bottom: 2rpx;
+  left: 2rpx;
+  background: linear-gradient(60deg, #FC4528 0%, #FC573C 43%, #FC7639 100%);
+  border-top-left-radius: 12rpx;
+  border-bottom-right-radius: 12rpx;
+  height: 33rpx;
+  line-height: 33rpx;
+}
+.diy-assembleproduct .column__3 .product-item {
+  width: 442rpx;
+  margin-right: 20rpx;
+  padding: 21rpx 28rpx;
+  box-sizing: border-box;
+  box-shadow: 0px 8rpx 3rpx 0px rgba(6, 0, 1, 0.03);
+}
+.theme0 .diy-assembleproduct .column__3 .product-item {
+  background: linear-gradient(180deg, rgba(255, 76, 1, 0.1) 0%, #ffffff 100%) !important;
+}
+.theme1 .diy-assembleproduct .column__3 .product-item {
+  background: linear-gradient(180deg, rgba(255, 76, 1, 0.1) 0%, #ffffff 100%) !important;
+}
+.theme2 .diy-assembleproduct .column__3 .product-item {
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%) !important;
+}
+.theme3 .diy-assembleproduct .column__3 .product-item {
+  background: linear-gradient(180deg, rgba(233, 240, 249, 0.5) 0%, #ffffff 100%) !important;
+}
+.theme4 .diy-assembleproduct .column__3 .product-item {
+  background: linear-gradient(180deg, #E6E7E0 0%, #ffffff 100%) !important;
+}
+.theme5 .diy-assembleproduct .column__3 .product-item {
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%) !important;
+}
+.theme6 .diy-assembleproduct .column__3 .product-item {
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%) !important;
+}
+.diy-assembleproduct .column__3 .product-cover {
+  width: 126rpx;
+  height: 126rpx;
+  margin: 0 auto;
+  border-radius: 5rpx;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 22rpx;
+}
+.diy-assembleproduct .column__3 .assemble_btn {
+  width: 126rpx;
+  height: 40rpx;
+  font-size: 20rpx;
+  text-align: center;
+  border-radius: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

@@ -1,0 +1,10 @@
+;my.defineComponent || (my.defineComponent = Component);(my["webpackJsonp"]=my["webpackJsonp"]||[]).push([["pagesLive/live/live-part/liveAnchor"],{4520:function(e,t,i){"use strict";i.d(t,"b",(function(){return o})),i.d(t,"c",(function(){return n})),i.d(t,"a",(function(){}));var o=function(){var e=this.$createElement;this._self._c},n=[]},"46ea":function(e,t,i){"use strict";i.r(t);var o=i("4520"),n=i("e718");for(var s in n)["default"].indexOf(s)<0&&function(e){i.d(t,e,(function(){return n[e]}))}(s);i("4c10");var u=i("f0c5"),r=Object(u["a"])(n["default"],o["b"],o["c"],!1,null,"ec5b3b62",null,!1,o["a"],void 0);t["default"]=r.exports},"4c10":function(e,t,i){"use strict";var o=i("710a"),n=i.n(o);n.a},"5e74":function(e,t,i){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;t.default={data:function(){return{popupVisible:!1,liveUser:{},live_user:{},is_follow:!1}},props:["room_id","shop_supplier_id"],methods:{show:function(){this.popupVisible=!0,this.getUser()},getRequest:function(){return this},getUser:function(){var e=this;e.data_type;e.getRequest()._get("plus.live.room/detail",{room_id:e.room_id},(function(t){e.is_follow=t.data.hasFollow,e.live_user=t.data.model}))},followFunc:function(){var e=this;e.getRequest()._post("user.Favorite/add",{shop_supplier_id:e.shop_supplier_id,pid:e.shop_supplier_id,type:10},(function(t){e.$emit("changeFollow",!e.is_follow),e.getUser()}))},gotoAnchorPage:function(){this.gotoPage("/pages/shop/shop?shop_supplier_id="+this.shop_supplier_id)},close:function(){this.popupVisible=!1}}}},"710a":function(e,t,i){},e718:function(e,t,i){"use strict";i.r(t);var o=i("5e74"),n=i.n(o);for(var s in o)["default"].indexOf(s)<0&&function(e){i.d(t,e,(function(){return o[e]}))}(s);t["default"]=n.a}}]);
+;(my["webpackJsonp"] = my["webpackJsonp"] || []).push([
+    'pagesLive/live/live-part/liveAnchor-create-component',
+    {
+        'pagesLive/live/live-part/liveAnchor-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('c11b')['createComponent'](__webpack_require__("46ea"))
+        })
+    },
+    [['pagesLive/live/live-part/liveAnchor-create-component']]
+]);

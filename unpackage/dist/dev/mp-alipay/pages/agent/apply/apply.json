@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "申请成为分销商",
+  "usingComponents": {
+    "popup": "/components/uni-popup"
+  }
+}

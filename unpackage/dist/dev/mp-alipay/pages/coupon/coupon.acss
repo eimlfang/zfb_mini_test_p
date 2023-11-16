@@ -1,0 +1,17 @@
+
+.coupon-wrap {
+	padding: 30rpx;
+}
+.item-wrap {
+	margin-bottom: 20rpx;
+}
+.range_item{
+	border: 1rpx solid #D9D9D9;
+	border-top: none;
+	padding: 8rpx;
+	border-bottom-left-radius:10rpx ;
+	border-bottom-right-radius:10rpx ;
+	color: #666666;
+	box-shadow: 0 0 8rpx rgba(0, 0, 0, 0.1);
+}
+

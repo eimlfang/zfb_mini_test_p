@@ -1,0 +1,1 @@
+page{background-color:#f7f6fb}.renzheng{border-radius:20rpx;background-color:#fff;margin:20rpx}.content{display:flex;justify-content:space-between;align-items:center;padding:20rpx 25rpx;border-radius:25rpx}.content .left view{margin:10rpx}.content .left .top{color:#2f3131;font-size:34rpx;font-weight:700}.content .left .buttom{color:#b1b1b1;font-size:24rpx}

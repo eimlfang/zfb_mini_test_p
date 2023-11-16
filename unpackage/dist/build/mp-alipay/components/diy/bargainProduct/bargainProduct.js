@@ -1,0 +1,10 @@
+;my.defineComponent || (my.defineComponent = Component);(my["webpackJsonp"]=my["webpackJsonp"]||[]).push([["components/diy/bargainProduct/bargainProduct"],{2548:function(t,n,a){"use strict";a.r(n);var o=a("fbb1"),e=a("af22");for(var i in e)["default"].indexOf(i)<0&&function(t){a.d(n,t,(function(){return e[t]}))}(i);a("a7e5");var u=a("f0c5"),c=Object(u["a"])(e["default"],o["b"],o["c"],!1,null,null,null,!1,o["a"],void 0);n["default"]=c.exports},"700d":function(t,n,a){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),n.default=void 0;var o={components:{Countdown:function(){a.e("components/countdown/countdown-act").then(function(){return resolve(a("042d"))}.bind(null,a)).catch(a.oe)}},data:function(){return{countdownConfig:{startstamp:0,endstamp:0,title:" "}}},props:["itemData"],created:function(){this.countdownConfig.endstamp=this.itemData.data.end_time,this.countdownConfig.startstamp=this.itemData.data.start_time},methods:{scroll:function(t){},gotoList:function(){this.gotoPage("/pages/plus/bargain/list/list")},gotoDetail:function(t){var n="/pages/plus/bargain/detail/detail?bargain_product_id="+t;this.gotoPage(n)}}};n.default=o},7559:function(t,n,a){},a7e5:function(t,n,a){"use strict";var o=a("7559"),e=a.n(o);e.a},af22:function(t,n,a){"use strict";a.r(n);var o=a("700d"),e=a.n(o);for(var i in o)["default"].indexOf(i)<0&&function(t){a.d(n,t,(function(){return o[t]}))}(i);n["default"]=e.a},fbb1:function(t,n,a){"use strict";a.d(n,"b",(function(){return o})),a.d(n,"c",(function(){return e})),a.d(n,"a",(function(){}));var o=function(){var t=this.$createElement;this._self._c},e=[]}}]);
+;(my["webpackJsonp"] = my["webpackJsonp"] || []).push([
+    'components/diy/bargainProduct/bargainProduct-create-component',
+    {
+        'components/diy/bargainProduct/bargainProduct-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('c11b')['createComponent'](__webpack_require__("2548"))
+        })
+    },
+    [['components/diy/bargainProduct/bargainProduct-create-component']]
+]);

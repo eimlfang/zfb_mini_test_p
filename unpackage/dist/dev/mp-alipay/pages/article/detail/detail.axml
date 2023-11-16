@@ -1,0 +1,1 @@
+<block a:if="{{loadding}}"><view class="article-detail"><view class="title fb">{{article.article_title}}</view><view class="info d-b-c f24"><view><text class="red">{{article.category.name}}</text><text class="ml30">{{article.create_time}}</text></view></view><view class="article-content"><rich-text nodes="{{article.article_content}}"></rich-text></view></view></block>

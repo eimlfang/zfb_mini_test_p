@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "",
+  "pullRefresh": true,
+  "titleBarColor": "#284A94",
+  "usingComponents": {
+    "recommend-product": "/components/recommendProduct/recommendProduct"
+  }
+}

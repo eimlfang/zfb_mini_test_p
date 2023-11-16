@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "秒杀列表",
+  "usingComponents": {
+    "countdown": "/components/countdown/countdown"
+  }
+}

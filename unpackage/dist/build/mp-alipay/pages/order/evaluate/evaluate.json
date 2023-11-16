@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "评价",
+  "usingComponents": {
+    "upload": "/components/upload/upload"
+  }
+}

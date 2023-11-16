@@ -1,0 +1,10 @@
+;my.defineComponent || (my.defineComponent = Component);(my["webpackJsonp"]=my["webpackJsonp"]||[]).push([["components/mpservice/Mpservice"],{"01d6":function(n,t,e){"use strict";e.r(t);var i=e("3d76"),o=e.n(i);for(var u in i)["default"].indexOf(u)<0&&function(n){e.d(t,n,(function(){return i[n]}))}(u);t["default"]=o.a},2817:function(n,t,e){},"3d76":function(n,t,e){"use strict";(function(n){Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var i={components:{Popup:function(){e.e("components/uni-popup").then(function(){return resolve(e("743f"))}.bind(null,e)).catch(e.oe)}},data:function(){return{isPopup:!1,isloding:!0,width:600,dataModel:{qq:"",wechat:"",phone:""}}},props:["shopSupplierId"],created:function(){this.isPopup=!0,this.getData()},methods:{getData:function(){var n=this;n.isloding=!0,n._get("index/mpService",{shop_supplier_id:n.shopSupplierId},(function(t){n.dataModel=t.data.mp_service,n.isloding=!1}))},hidePopupFunc:function(n){this.isPopup=!1,this.$emit("close")},copyQQ:function(n){},callPhone:function(t){n.makePhoneCall({phoneNumber:t})}}};t.default=i}).call(this,e("c11b")["default"])},"6d76":function(n,t,e){"use strict";e.r(t);var i=e("7b81"),o=e("01d6");for(var u in o)["default"].indexOf(u)<0&&function(n){e.d(t,n,(function(){return o[n]}))}(u);e("d7fc");var c=e("f0c5"),a=Object(c["a"])(o["default"],i["b"],i["c"],!1,null,null,null,!1,i["a"],void 0);t["default"]=a.exports},"7b81":function(n,t,e){"use strict";e.d(t,"b",(function(){return i})),e.d(t,"c",(function(){return o})),e.d(t,"a",(function(){}));var i=function(){var n=this.$createElement;this._self._c},o=[]},d7fc:function(n,t,e){"use strict";var i=e("2817"),o=e.n(i);o.a}}]);
+;(my["webpackJsonp"] = my["webpackJsonp"] || []).push([
+    'components/mpservice/Mpservice-create-component',
+    {
+        'components/mpservice/Mpservice-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('c11b')['createComponent'](__webpack_require__("6d76"))
+        })
+    },
+    [['components/mpservice/Mpservice-create-component']]
+]);

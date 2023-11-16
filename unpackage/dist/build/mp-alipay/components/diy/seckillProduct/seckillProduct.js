@@ -1,0 +1,10 @@
+;my.defineComponent || (my.defineComponent = Component);(my["webpackJsonp"]=my["webpackJsonp"]||[]).push([["components/diy/seckillProduct/seckillProduct"],{"3ec5":function(t,n,e){},"43a0":function(t,n,e){"use strict";e.r(n);var o=e("c9a4"),c=e.n(o);for(var i in o)["default"].indexOf(i)<0&&function(t){e.d(n,t,(function(){return o[t]}))}(i);n["default"]=c.a},"46c5":function(t,n,e){"use strict";var o=e("3ec5"),c=e.n(o);c.a},"9c31":function(t,n,e){"use strict";e.d(n,"b",(function(){return o})),e.d(n,"c",(function(){return c})),e.d(n,"a",(function(){}));var o=function(){var t=this.$createElement;this._self._c},c=[]},c9a4:function(t,n,e){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),n.default=void 0;var o={components:{Countdown:function(){e.e("components/countdown/countdown-act").then(function(){return resolve(e("042d"))}.bind(null,e)).catch(e.oe)}},data:function(){return{countdownConfig:{startstamp:0,endstamp:0,title:" "}}},props:["itemData"],created:function(){this.countdownConfig.endstamp=this.itemData.data.end_time,this.countdownConfig.startstamp=this.itemData.data.start_time},methods:{scroll:function(t){},gotoList:function(){this.gotoPage("/pages/plus/seckill/list/list")},gotoDetail:function(t){var n="/pages/plus/seckill/detail/detail?seckill_product_id="+t;this.gotoPage(n)}}};n.default=o},f6da:function(t,n,e){"use strict";e.r(n);var o=e("9c31"),c=e("43a0");for(var i in c)["default"].indexOf(i)<0&&function(t){e.d(n,t,(function(){return c[t]}))}(i);e("46c5");var a=e("f0c5"),u=Object(a["a"])(c["default"],o["b"],o["c"],!1,null,null,null,!1,o["a"],void 0);n["default"]=u.exports}}]);
+;(my["webpackJsonp"] = my["webpackJsonp"] || []).push([
+    'components/diy/seckillProduct/seckillProduct-create-component',
+    {
+        'components/diy/seckillProduct/seckillProduct-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('c11b')['createComponent'](__webpack_require__("f6da"))
+        })
+    },
+    [['components/diy/seckillProduct/seckillProduct-create-component']]
+]);

@@ -1,0 +1,135 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* start--主题色--start */
+/* end--主题色--end */
+.color_bargain {
+  color: #333333;
+}
+.diy-bargainProduct {
+  margin: 20rpx;
+  border-radius: 6rpx;
+  overflow: hidden;
+  box-shadow: 0px 8rpx 3rpx 0px rgba(6, 0, 1, 0.03);
+}
+.theme0 .diy-bargainProduct {
+  background: linear-gradient(180deg, #F4DCD2 0%, #ffffff 100%) !important;
+}
+.theme1 .diy-bargainProduct {
+  background: linear-gradient(180deg, rgba(255, 76, 1, 0.15) 0%, #ffffff 100%) !important;
+}
+.theme2 .diy-bargainProduct {
+  background: linear-gradient(180deg, rgba(255, 204, 0, 0.15) 0%, #ffffff 100%) !important;
+}
+.theme3 .diy-bargainProduct {
+  background: linear-gradient(180deg, rgba(23, 116, 255, 0.15) 0%, #ffffff 100%) !important;
+}
+.theme4 .diy-bargainProduct {
+  background: linear-gradient(180deg, #FFFFFF 0%, #ffffff 100%) !important;
+}
+.theme5 .diy-bargainProduct {
+  background: linear-gradient(180deg, #EBE8DE 0%, #ffffff 100%) !important;
+}
+.theme6 .diy-bargainProduct {
+  background: linear-gradient(180deg, rgba(98, 60, 235, 0.15) 0%, #ffffff 100%) !important;
+}
+.diy-bargainProduct .bargainProduct-body {
+  padding: 0 20rpx;
+}
+.bargainProduct-head {
+  height: 90rpx;
+  background-size: 100% 100%;
+}
+.bargainProduct-head .name {
+  font-size: 32rpx;
+  font-weight: bold;
+  width: 200rpx;
+}
+.bargainProduct-head .datetime > ._span {
+  display: inline-block;
+}
+.bargainProduct-head .datetime text {
+  font-size: 24rpx;
+  color: #ffffff;
+}
+.bargainProduct-head .datetime .box {
+  padding: 4rpx 10rpx;
+  font-size: 22rpx;
+  background: #FFFFFF;
+  color: #FFFFFF;
+}
+.diy-bargainProduct .product-list image {
+  width: 100%;
+  height: 100%;
+}
+.diy-bargainProduct .product-list .product-title {
+  margin-top: 32rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-size: 30rpx;
+}
+.diy-bargainProduct .product-list .price {
+  height: 24rpx;
+  line-height: 24rpx;
+}
+.diy-bargainProduct .product-list.column__3 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+.diy-bargainProduct .column__3 .product-item {
+  width: 132rpx;
+  margin-right: 46rpx;
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+  padding-bottom: 16rpx;
+}
+.diy-bargainProduct .column__3 .product-cover {
+  width: 132rpx;
+  height: 132rpx;
+  margin: 0 auto;
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-bottom: 16rpx;
+}
+.bargain_btn {
+  background: #fe3c30;
+  width: 202rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  font-size: 22rpx;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0 auto;
+  border-radius: 24rpx;
+  margin-bottom: 28rpx;
+}
+

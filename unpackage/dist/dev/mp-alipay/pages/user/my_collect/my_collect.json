@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "我的关注",
+  "pullRefresh": false,
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more"
+  }
+}

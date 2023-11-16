@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "购物车",
+  "usingComponents": {
+    "request-loading": "/components/jjjloading",
+    "tab-bar": "/components/tabbar/footTabbar",
+    "recommend-product": "/components/recommendProduct/recommendProduct"
+  }
+}

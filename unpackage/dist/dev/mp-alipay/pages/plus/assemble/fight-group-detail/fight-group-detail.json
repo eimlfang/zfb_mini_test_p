@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "分享拼团",
+  "usingComponents": {
+    "countdown": "/components/countdown/countdown",
+    "share": "/components/mp-share",
+    "app-share": "/components/app-share"
+  }
+}

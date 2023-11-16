@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "商品管理",
+  "pullRefresh": false,
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more"
+  }
+}

@@ -1,0 +1,1 @@
+<block a:if="{{loadding}}"><view class="request-loading-view data-v-f3c1e87a"><view class="loading-view data-v-f3c1e87a"><image class="loading-img data-v-f3c1e87a" src="../static/loading.gif" mode></image></view></view></block>

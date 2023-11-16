@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "直播预告",
+  "pullRefresh": false,
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more",
+    "share": "/pages/user/my_shop/my_live/dialog/share",
+    "countdown": "/components/countdown/countdown"
+  }
+}

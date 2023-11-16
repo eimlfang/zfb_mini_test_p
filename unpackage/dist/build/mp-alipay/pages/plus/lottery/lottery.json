@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "幸运大转盘",
+  "pullRefresh": false,
+  "usingComponents": {
+    "almost-lottery": "/uni_modules/almost-lottery/components/almost-lottery/almost-lottery",
+    "popup": "/components/uni-popup",
+    "uni-load-more": "/components/uni-load-more"
+  }
+}

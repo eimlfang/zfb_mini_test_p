@@ -1,0 +1,4 @@
+.almost-lottery.data-v-c8ffceb8{display:flex;justify-content:center;align-items:center;margin:0 auto}.almost-lottery__wrap.data-v-c8ffceb8{position:relative;display:flex;justify-content:center;align-items:center}.almost-lottery__action.data-v-c8ffceb8,
+.almost-lottery__bg.data-v-c8ffceb8,
+.almost-lottery__canvas.data-v-c8ffceb8{position:absolute}.almost-lottery__canvas.data-v-c8ffceb8{left:-9999px;opacity:0;display:flex;justify-content:center;align-items:center}.almost-lottery__canvas-img.data-v-c8ffceb8,
+.almost-lottery__action-bg.data-v-c8ffceb8{display:block;transition:-webkit-transform cubic-bezier(.34,.12,.05,.95);transition:transform cubic-bezier(.34,.12,.05,.95);transition:transform cubic-bezier(.34,.12,.05,.95),-webkit-transform cubic-bezier(.34,.12,.05,.95)}.almost-lottery__tip.data-v-c8ffceb8{color:#fff;font-size:24rpx;text-align:center}.almost-lottery__measureText.data-v-c8ffceb8{position:absolute;left:0;top:0;white-space:nowrap;font-size:12px;opacity:0}

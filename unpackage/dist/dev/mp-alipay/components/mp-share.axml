@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['closePopup',['$event']]]]]}}" class="{{(('bottom-panel')+' '+(Visible?'bottom-panel open':'bottom-panel close'))}}" onTap="__e"><view class="popup-bg"><view class="wechat-box"><image src="/static/share.png" mode="widthFix"></image></view></view></view>

@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "分类",
+  "usingComponents": {
+    "tab-bar": "/components/tabbar/footTabbar",
+    "request-loading": "/components/jjjloading"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "表单",
+  "pullRefresh": false,
+  "usingComponents": {
+    "mpvue-city-picker": "/components/mpvue-citypicker/mpvueCityPicker",
+    "upload": "/components/upload/upload"
+  }
+}

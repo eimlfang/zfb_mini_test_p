@@ -1,0 +1,1 @@
+.countdown .box{display:inline-block;padding:4rpx;border-radius:8rpx;background:#fff;text-align:center;color:#fff}

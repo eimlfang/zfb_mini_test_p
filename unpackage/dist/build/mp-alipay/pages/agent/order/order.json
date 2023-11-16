@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "分销订单",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "",
+  "pullRefresh": true,
+  "titleBarColor": "#fba402",
+  "usingComponents": {
+    "recommend-product": "/components/recommendProduct/recommendProduct"
+  }
+}

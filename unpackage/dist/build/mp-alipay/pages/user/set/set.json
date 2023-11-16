@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "设置",
+  "usingComponents": {
+    "upload": "/components/upload/uploadOne",
+    "popup": "/components/uni-popup"
+  }
+}

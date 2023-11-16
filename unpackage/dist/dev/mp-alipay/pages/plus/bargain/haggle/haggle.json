@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "砍价购",
+  "usingComponents": {
+    "countdown": "/components/countdown/countdown",
+    "popup": "/components/uni-popup",
+    "rule": "/pages/plus/bargain/haggle/popup/Rule",
+    "share": "/components/mp-share",
+    "app-share": "/components/app-share"
+  }
+}

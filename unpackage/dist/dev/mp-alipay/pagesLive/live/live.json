@@ -1,0 +1,21 @@
+{
+  "defaultTitle": "直播间",
+  "pullRefresh": false,
+  "backgroundColor": "#000000",
+  "usingComponents": {
+    "live-cart": "/pagesLive/live/live-part/liveCart",
+    "live-gift": "/pagesLive/live/live-part/liveGift",
+    "live-room": "/pagesLive/live/live-part/liveRoom",
+    "live-msg": "/pagesLive/live/live-part/liveMsg",
+    "live-plan": "/pagesLive/live/live-part/livePlan",
+    "live-order": "/pagesLive/live/live-part/liveOrder",
+    "live-anchor": "/pagesLive/live/live-part/liveAnchor",
+    "live-more": "/pagesLive/live/live-part/liveMore",
+    "live-share": "/pagesLive/live/live-part/liveShare",
+    "live-rank": "/pagesLive/live/live-part/liveRank",
+    "likes": "/pagesLive/live/live-part/likes/index",
+    "share": "/pagesLive/live/live-part/dialog/share",
+    "countdown": "/pagesLive/live/live-part/countdown_nvue",
+    "app-share": "/pagesLive/live/live-part/app-nvue-share"
+  }
+}

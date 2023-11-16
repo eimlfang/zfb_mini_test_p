@@ -1,0 +1,2 @@
+.top-container .total{height:80rpx}.agent-team-photo,
+.agent-team-photo image{width:80rpx;height:80rpx;border-radius:50%}

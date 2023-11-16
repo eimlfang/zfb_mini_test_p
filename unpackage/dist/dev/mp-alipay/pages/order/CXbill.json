@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "",
+  "pullRefresh": false,
+  "usingComponents": {
+    "popup": "/components/uni-popup",
+    "mpservice": "/components/mpservice/Mpservice"
+  }
+}

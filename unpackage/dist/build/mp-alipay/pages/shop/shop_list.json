@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "店铺列表",
+  "usingComponents": {
+    "tab-bar": "/components/tabbar/footTabbar",
+    "uni-load-more": "/components/uni-load-more"
+  }
+}

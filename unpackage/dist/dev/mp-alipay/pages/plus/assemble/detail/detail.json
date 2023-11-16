@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "拼团详情",
+  "usingComponents": {
+    "spec": "/pages/plus/assemble/detail/popup/Spec",
+    "countdown": "/components/countdown/countdown",
+    "mpservice": "/components/mpservice/Mpservice",
+    "bill": "/pages/plus/assemble/detail/part/Bill",
+    "more-bill": "/pages/plus/assemble/detail/popup/MoreBill",
+    "guarantee": "/components/guarantee"
+  }
+}

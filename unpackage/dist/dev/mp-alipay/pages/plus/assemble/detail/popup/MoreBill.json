@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {
+    "popup": "/components/uni-popup",
+    "countdown": "/components/countdown/countdown"
+  }
+}

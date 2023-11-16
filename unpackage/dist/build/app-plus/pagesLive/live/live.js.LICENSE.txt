@@ -1,0 +1,23 @@
+/*!
+     * Determine if an object is a Buffer
+     *
+     * @author   Feross Aboukhadijeh <https://feross.org>
+     * @license  MIT
+     */
+
+/*!
+     * EventEmitter v5.2.9 - git.io/ee
+     * Unlicense - http://unlicense.org/
+     * Oliver Caldwell - https://oli.me.uk/
+     * @preserve
+     */
+
+/*!
+ * iny-bus.js v1.1.0
+ * (c) 2019-2020 landluck
+ * Released under the MIT License.
+ */
+
+/*! pako 2.0.1 https://github.com/nodeca/pako @license (MIT AND Zlib) */
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */

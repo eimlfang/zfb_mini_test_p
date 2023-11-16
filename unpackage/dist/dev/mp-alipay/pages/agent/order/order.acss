@@ -1,0 +1,8 @@
+
+.agent-order-photo,
+.agent-order-photo image {
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 50%;
+}
+

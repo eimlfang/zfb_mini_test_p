@@ -1,0 +1,10 @@
+{
+  "defaultTitle": "砍价详情",
+  "usingComponents": {
+    "countdown": "/components/countdown/countdown",
+    "spec": "/pages/plus/bargain/detail/popup/Spec",
+    "rule": "/pages/plus/bargain/detail/popup/Rule",
+    "mpservice": "/components/mpservice/Mpservice",
+    "guarantee": "/components/guarantee"
+  }
+}

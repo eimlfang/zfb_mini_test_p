@@ -1,0 +1,136 @@
+
+.signin-container {
+	position: fixed;
+	top: 0px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow-y: auto;
+	background: #e2231a;
+}
+.signin-container .sigin-title {
+	padding-top: 40rpx;
+	height: 200rpx;
+	color: #ffe19f;
+}
+.signin-container .sigin-title text {
+	font-size: 80rpx;
+	font-weight: bold;
+}
+.signin-container .sign-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 1;
+}
+.signin-container .sign-main {
+	margin: 45rpx;
+}
+.signin-container .sign-main-bg {
+	background: #ff5649;
+	border-radius: 20rpx;
+	box-shadow: 0 10rpx 16rpx 0 rgba(0,0,0,.2);
+}
+.signin-container .sign-main .sign-head {
+	padding: 20rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: #ffffff;
+}
+.signin-container .sign-main .sign-head .big {
+	font-size: 30rpx;
+}
+.signin-container .sign-calendar-wrap {
+	width: 100%;
+	border-radius: 20rpx;
+	background: rgba(255, 255, 255, 0.9);
+	box-shadow: 0 -4rpx 8rpx 0 rgba(0,0,0,.1);
+}
+.sign-calendar-wrap .date-text {
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	color: #e2231a;
+	font-size: 30rpx;
+}
+.sign-calendar-wrap .week-list {
+	display: flex;
+	justify-content: flex-start;
+}
+.sign-calendar-wrap .week-list .week-item {
+	width: 94rpx;
+	height: 80rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #999999;
+	font-size: 28rpx;
+	font-weight: bold;
+}
+.sign-calendar-wrap .date-list-wrap {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.sign-calendar-wrap .date-list-wrap .date-item {
+	width: 94rpx;
+	height: 80rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 28rpx;
+	font-weight: bold;
+}
+.sign-calendar-wrap .date-list-wrap .date-item .icon-box {
+	width: 60rpx;
+	height: 60rpx;
+	border-radius: 50%;
+	background: #ff5850;
+	color: #FFFFFF;
+}
+.sign-calendar-wrap .date-list-wrap .date-item image {
+	width: 60rpx;
+	height: 60rpx;
+}
+.sign-calendar-wrap .date-list-wrap .date-item .iconfont {
+	color: #ff5850;
+	font-size: 50rpx;
+	font-weight: 100;
+}
+.sign-calendar-wrap .date-list-wrap .secondary-date-item {
+	color: #efe3c8;
+}
+.sign-main .btns {
+	margin-top: 40rpx;
+	padding: 0 20rpx 40rpx;
+}
+.sign-main .btns button {
+	height: 100rpx;
+	line-height: 100rpx;
+	text-shadow: 0 0 8rpx 0 rgba(0, 0, 0, 0.3);
+	border-radius: 50rpx;
+	font-size: 36rpx;
+	background: linear-gradient(0deg, #ff4239, #ff5850, #ff6a63);
+	box-shadow: 0 10rpx 20rpx 0 rgba(0, 0, 0, 0.1);
+	color: #ffe4e2;
+}
+.rule-btn {
+	position: fixed;
+	top: calc(0px + 30rpx);
+	padding: 0 20rpx 0 30rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	font-size: 30rpx;
+	background: linear-gradient(90deg, #ff5850, #e2231a);
+	box-shadow: 0 10rpx 16rpx 0 rgba(0,0,0,.2);
+	border-radius: 40rpx 0 0 40rpx;
+	color: #ffffff;
+	right: 0;
+	z-index: 1;
+}
+.signin-container .btns .iconfont{ font-size: 40rpx; color: yellow;}
+

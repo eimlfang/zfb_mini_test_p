@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "直播商品",
+  "pullRefresh": false,
+  "usingComponents": {
+    "upload": "/components/upload/upload",
+    "picker-view-datetime": "/components/picker-view-datetime/pickerViewDatetime",
+    "countdown": "/components/countdown/countdown"
+  }
+}

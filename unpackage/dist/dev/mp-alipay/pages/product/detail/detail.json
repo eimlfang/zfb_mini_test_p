@@ -1,0 +1,13 @@
+{
+  "defaultTitle": "商品详情",
+  "usingComponents": {
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "spec": "/pages/product/detail/popup/spec",
+    "share": "/pages/product/detail/popup/share",
+    "uni-popup": "/components/uni-popup",
+    "mpservice": "/components/mpservice/Mpservice",
+    "guarantee": "/components/guarantee",
+    "app-share": "/components/app-share",
+    "coupon": "/pages/product/detail/popup/coupon"
+  }
+}

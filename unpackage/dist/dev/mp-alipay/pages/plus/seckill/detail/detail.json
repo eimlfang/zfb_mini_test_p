@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "秒杀详情",
+  "usingComponents": {
+    "spec": "/pages/plus/seckill/detail/popup/Spec",
+    "countdown": "/components/countdown/countdown",
+    "mpservice": "/components/mpservice/Mpservice",
+    "guarantee": "/components/guarantee"
+  }
+}

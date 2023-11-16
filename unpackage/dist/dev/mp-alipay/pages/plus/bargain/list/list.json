@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "砍价列表",
+  "usingComponents": {
+    "countdown": "/components/countdown/countdown"
+  }
+}

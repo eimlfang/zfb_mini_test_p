@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "支付成功",
+  "usingComponents": {
+    "recommend-product": "/components/recommendProduct/recommendProduct"
+  }
+}

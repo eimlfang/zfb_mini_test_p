@@ -1,0 +1,1 @@
+<view class="countdown" style="{{('color:'+color)}}"><block a:if="{{config.type==null}}"><text class="daybox" style="{{('background-color: '+back_color+';color:'+cut_color)}}">{{day+"天"}}</text><text class="numbox">{{hour+":"+minute+":"+second}}</text></block><block a:if="{{config.type==='text'}}">{{''+title+($root.m0+$root.m1)+":"+minute+":"+second+''}}</block></view>

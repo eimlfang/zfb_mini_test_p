@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "申请售后",
+  "usingComponents": {
+    "upload": "/components/upload/upload"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="qrcode"><image src="{{qrcode_url}}" mode="widthFix"></image><view class="btns-wrap"><button class="btn-red" type="default" data-event-opts="{{[['tap',[['savePosterImg',['$event']]]]]}}" onTap="__e">保存图片</button></view></view>

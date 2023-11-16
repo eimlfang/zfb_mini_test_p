@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "店铺订单",
+  "pullRefresh": false,
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more",
+    "popup": "/components/uni-popup"
+  }
+}

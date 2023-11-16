@@ -1,0 +1,10 @@
+;my.defineComponent || (my.defineComponent = Component);(my["webpackJsonp"]=my["webpackJsonp"]||[]).push([["components/diy/live/live"],{"1a54":function(t,e,a){"use strict";a.d(e,"b",(function(){return n})),a.d(e,"c",(function(){return i})),a.d(e,"a",(function(){}));var n=function(){var t=this,e=t.$createElement,a=(t._self._c,t.itemData.data.length>0?t.__map(t.itemData.data,(function(e,a){var n=t.__get_orig(e),i=101==e.live_status||102==e.live_status||104==e.live_status?t.convertStatus(e.live_status):null;return{$orig:n,m0:i}})):null);t.$mp.data=Object.assign({},{$root:{l0:a}})},i=[]},7053:function(t,e,a){"use strict";a.r(e);var n=a("fac6"),i=a.n(n);for(var o in n)["default"].indexOf(o)<0&&function(t){a.d(e,t,(function(){return n[t]}))}(o);e["default"]=i.a},"75e9":function(t,e,a){"use strict";var n=a("7a64"),i=a.n(n);i.a},"7a64":function(t,e,a){},8268:function(t,e,a){"use strict";a.r(e);var n=a("1a54"),i=a("7053");for(var o in i)["default"].indexOf(o)<0&&function(t){a.d(e,t,(function(){return i[t]}))}(o);a("75e9");var u=a("f0c5"),r=Object(u["a"])(i["default"],n["b"],n["c"],!1,null,null,null,!1,n["a"],void 0);e["default"]=r.exports},fac6:function(t,e,a){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;e.default={components:{},data:function(){return{}},props:["itemData"],created:function(){},methods:{scroll:function(t){},convertStatus:function(t){var e="";switch(t){case 101:e="直播中";break;case 102:e="未开始";break;case 103:e="已结束";break;case 104:e="禁播";break;case 105:e="暂停";break;case 106:e="异常";break;case 107:e="已过期";break}return e},gotoList:function(){this.gotoPage("/pages/plus/live/wx/list")},gotoDetail:function(t){this.gotoPage("/pagesLive/live/live?room_id="+t.room_id+"&sence=join")}}}}}]);
+;(my["webpackJsonp"] = my["webpackJsonp"] || []).push([
+    'components/diy/live/live-create-component',
+    {
+        'components/diy/live/live-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('c11b')['createComponent'](__webpack_require__("8268"))
+        })
+    },
+    [['components/diy/live/live-create-component']]
+]);

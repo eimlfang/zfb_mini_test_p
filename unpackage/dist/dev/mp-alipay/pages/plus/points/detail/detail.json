@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "积分商品详情",
+  "usingComponents": {
+    "spec": "/pages/plus/points/detail/popup/Spec",
+    "mpservice": "/components/mpservice/Mpservice",
+    "guarantee": "/components/guarantee"
+  }
+}

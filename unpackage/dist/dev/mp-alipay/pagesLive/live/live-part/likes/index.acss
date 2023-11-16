@@ -1,0 +1,47 @@
+
+.iconfont.data-v-a0a9b4a4 {
+	font-family: iconfont;
+}
+.animate-wrap.data-v-a0a9b4a4{
+	display: inline-block;
+	margin-right: 10px;
+	position: absolute;
+	width: 74rpx;
+	height: 800rpx;
+	/* top: -110rpx; */
+	bottom: 100rpx;
+	right: 0;
+	z-index: 10;
+}
+.content.data-v-a0a9b4a4{
+	position: absolute;
+	right: 0;
+	z-index: 14;
+}
+.content_box.data-v-a0a9b4a4{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.logo.data-v-a0a9b4a4{
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	width: 70rpx;
+	height: 70rpx;
+}
+.aa.data-v-a0a9b4a4{
+	position: absolute;
+	bottom: 0;
+	font-size: 30rpx;
+	color: white;
+	text-align: center;
+	line-height: 50rpx;
+	width: 80rpx;
+	-webkit-transform: translateY(0);
+	        transform: translateY(0);
+}
+.icon-31guanzhu1xuanzhong.data-v-a0a9b4a4{
+	font-size: 40rpx;
+}
+

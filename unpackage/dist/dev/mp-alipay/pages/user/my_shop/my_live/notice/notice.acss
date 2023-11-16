@@ -1,0 +1,70 @@
+
+.my-live.data-v-a7c1d7e4 {
+}
+.my-live .item-box.data-v-a7c1d7e4 {
+	padding: 10rpx 20rpx;
+}
+.my-live .item.data-v-a7c1d7e4 {
+	padding: 20rpx;
+	border-radius: 16rpx;
+	background: #ffffff;
+}
+.my-live .picture.data-v-a7c1d7e4 {
+	margin-right: 20rpx;
+	width: 160rpx;
+}
+.my-live .cover-picture.data-v-a7c1d7e4 {
+	width: 160rpx;
+	height: 160rpx;
+}
+.my-live .cover-picture image.data-v-a7c1d7e4 {
+	width: 100%;
+	height: 100%;
+}
+.my-live .picture .title.data-v-a7c1d7e4 {
+	height: 40rpx;
+	line-height: 40rpx;
+	padding: 0 10rpx;
+	text-align: center;
+	background: #eeeeee;
+	color: #333333;
+}
+.my-live .operation button.data-v-a7c1d7e4 {
+	height: 60rpx;
+	line-height: 60rpx;
+	border-radius: 0;
+}
+.my-live .operation .edit-btn.data-v-a7c1d7e4 {
+	background: #ffffff;
+	border: 1rpx solid #E2231A;
+	color: #E2231A;
+	margin-left: 20rpx;
+}
+.my-live .operation .delete-btn.data-v-a7c1d7e4 {
+	background: #ffffff;
+	color: #E2231A;
+	border: 1rpx solid #E2231A;
+}
+.my-live .add-product.data-v-a7c1d7e4 {
+	margin-left: 20rpx;
+	width: 130rpx;
+	height: 130rpx;
+	border: 1px solid #eeeeee;
+	background: #eeeeee;
+}
+.my-live .add-product image.data-v-a7c1d7e4 {
+	width: 100%;
+	height: 100%;
+}
+.add-video-btns.data-v-a7c1d7e4 {
+	padding: 0;
+}
+.add-video-btns button.data-v-a7c1d7e4 {
+	width: 100%;
+	height: 90rpx;
+	line-height: 90rpx;
+	background: #E2231A;
+	color: #ffffff;
+	border-radius: 0;
+}
+

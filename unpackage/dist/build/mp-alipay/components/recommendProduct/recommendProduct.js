@@ -1,0 +1,10 @@
+;my.defineComponent || (my.defineComponent = Component);(my["webpackJsonp"]=my["webpackJsonp"]||[]).push([["components/recommendProduct/recommendProduct"],{"296e":function(t,n,e){"use strict";e.r(n);var o=e("7653"),a=e("753e");for(var c in a)["default"].indexOf(c)<0&&function(t){e.d(n,t,(function(){return a[t]}))}(c);e("bad5");var i=e("f0c5"),u=Object(i["a"])(a["default"],o["b"],o["c"],!1,null,null,null,!1,o["a"],void 0);n["default"]=u.exports},"753e":function(t,n,e){"use strict";e.r(n);var o=e("e2cc"),a=e.n(o);for(var c in o)["default"].indexOf(c)<0&&function(t){e.d(n,t,(function(){return o[t]}))}(c);n["default"]=a.a},7653:function(t,n,e){"use strict";e.d(n,"b",(function(){return o})),e.d(n,"c",(function(){return a})),e.d(n,"a",(function(){}));var o=function(){var t=this.$createElement,n=(this._self._c,this.isShow?this.theme()||"":null),e=this.isShow?this.theme():null;this.$mp.data=Object.assign({},{$root:{m0:n,m1:e}})},a=[]},bad5:function(t,n,e){"use strict";var o=e("c012"),a=e.n(o);a.a},c012:function(t,n,e){},e2cc:function(t,n,e){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),n.default=void 0;n.default={data:function(){return{listData:[],isShow:!1,showName:""}},created:function(){this.getData()},props:["location"],methods:{getData:function(){var t=this;t.page;t._post("product.product/recommendProduct",{location:t.location},(function(n){1==n.data.is_recommend&&(t.isShow=!0,t.showName=n.data.recommend.name,t.listData=n.data.list)}))},gotoProduct:function(t){var n="/pages/product/detail/detail?product_id="+t;this.gotoPage(n)}}}}}]);
+;(my["webpackJsonp"] = my["webpackJsonp"] || []).push([
+    'components/recommendProduct/recommendProduct-create-component',
+    {
+        'components/recommendProduct/recommendProduct-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('c11b')['createComponent'](__webpack_require__("296e"))
+        })
+    },
+    [['components/recommendProduct/recommendProduct-create-component']]
+]);

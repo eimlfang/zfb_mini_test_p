@@ -1,0 +1,14 @@
+
+.points-top {
+	height: 100rpx;
+	padding: 0 30rpx;
+	color: #FFFFFF;
+}
+.re-btn {
+	padding: 0 8rpx;
+	color: #FFFFFF;
+	border: 1rpx solid #FFFFFF;
+	border-radius: 5rpx;
+	margin-left: 10rpx;
+}
+

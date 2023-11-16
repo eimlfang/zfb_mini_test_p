@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "商品评价",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more"
+  }
+}

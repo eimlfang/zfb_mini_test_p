@@ -1,0 +1,1 @@
+<view class="page"><view data-event-opts="{{[['tap',[['Jump',['$0'],[[['list','',__i0__,'id']]]]]]]}}" class="content" onTap="__e" a:for="{{list}}" a:for-item="data" a:for-index="__i0__"><view class="left"><view>{{data.title}}</view><view class="fuhao">></view></view><view class="right"><image src="../../static/tb/jinru.png" mode></image></view></view></view>

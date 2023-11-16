@@ -1,0 +1,34 @@
+
+.mpservice-wrap{
+	width: 100%;
+	box-sizing: border-box;
+}
+.mpservice-wrap .mp-image{ width: 560rpx; margin-top: 40rpx;}
+.mpservice-wrap .mp-image image{ width: 100%;}
+.icon-qq{
+	color: #1296db;
+	font-size: 64rpx;
+}
+.icon-weixin{
+	color: #1afa29;
+	font-size: 64rpx;
+}
+.icon-guanbi{
+	font-size: 26rpx;
+}
+.icon-002dianhua{
+	color: #1296db;
+	font-size: 52rpx;
+}
+.kf-close{
+	justify-content: flex-end;
+}
+.noDatamodel{
+	font-size: 30rpx;
+	width: 100%;
+	text-align: center;
+	height: 200rpx;
+	line-height: 128rpx;
+	color: #929292;
+}
+

@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "聊天",
+  "pullRefresh": false,
+  "usingComponents": {
+    "upload": "/components/upload/upload"
+  }
+}

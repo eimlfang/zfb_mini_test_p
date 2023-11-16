@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "storeinfo": "/pages/order/confirm-order/store-info"
+  }
+}

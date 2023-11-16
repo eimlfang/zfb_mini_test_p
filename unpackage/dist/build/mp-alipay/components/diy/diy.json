@@ -1,0 +1,29 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-notice-bar": "/uni_modules/uview-ui/components/u-notice-bar/u-notice-bar",
+    "nav-bar": "/components/diy/navBar/navBar",
+    "search": "/components/diy/search/search",
+    "banner": "/components/diy/banner/banner",
+    "imagesingle": "/components/diy/imagesingle/imagesingle",
+    "windows": "/components/diy/window/window",
+    "videos": "/components/diy/videos/videos",
+    "articles": "/components/diy/article/article",
+    "special": "/components/diy/special/special",
+    "notice": "/components/diy/notice/notice",
+    "titles": "/components/diy/title/title",
+    "coupon": "/components/diy/coupon/coupon",
+    "rich-text": "/components/diy/richText/richText",
+    "store": "/components/diy/store/store",
+    "service": "/components/diy/service/service",
+    "blank": "/components/diy/blank/blank",
+    "guide": "/components/diy/guide/guide",
+    "product": "/components/diy/product/product",
+    "product1": "/components/diy/product/product1",
+    "seckill-product": "/components/diy/seckillProduct/seckillProduct",
+    "assemble-product": "/components/diy/assembleProduct/assembleProduct",
+    "bargain-product": "/components/diy/bargainProduct/bargainProduct",
+    "live": "/components/diy/live/live",
+    "specialarea": "/components/diy/specialarea/specialarea"
+  }
+}

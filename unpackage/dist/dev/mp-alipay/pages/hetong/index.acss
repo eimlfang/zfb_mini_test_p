@@ -1,0 +1,21 @@
+.page {
+  background-color: #f1f4f6;
+  padding: 30rpx;
+}
+.content {
+  margin: 10rpx 0;
+}
+.content .left {
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.content .left .fuhao {
+  font-weight: 50;
+}
+.content .right image {
+  width: 40rpx;
+  height: 40rpx;
+}
+

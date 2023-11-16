@@ -1,0 +1,9 @@
+
+.min-name{
+	width: 670rpx;
+	margin: 0 auto;
+}
+.uni-list-cell-left {
+	font-size: 30rpx;
+}
+

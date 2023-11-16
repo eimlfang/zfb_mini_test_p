@@ -1,0 +1,12 @@
+{
+  "defaultTitle": "首页",
+  "pullRefresh": true,
+  "usingComponents": {
+    "nav-bar": "/components/navBar/navBar",
+    "diy": "/components/diy/diy",
+    "tab-bar": "/components/tabbar/footTabbar",
+    "homepush": "/pages/index/home-push/home-push",
+    "uni-load-more": "/components/uni-load-more",
+    "search-product": "/components/searchProduct"
+  }
+}

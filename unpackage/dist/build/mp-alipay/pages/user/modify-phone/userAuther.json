@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "实名认证",
+  "pullRefresh": false,
+  "usingComponents": {
+    "upload": "/components/upload/uploadOne",
+    "uploads": "/components/upload/uploadOne"
+  }
+}

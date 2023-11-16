@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "紧急联系人",
+  "pullRefresh": false,
+  "usingComponents": {
+    "u-notice-bar": "/uni_modules/uview-ui/components/u-notice-bar/u-notice-bar",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-form-item": "/uni_modules/uview-ui/components/u-form-item/u-form-item",
+    "u-radio-group": "/uni_modules/uview-ui/components/u-radio-group/u-radio-group",
+    "u-radio": "/uni_modules/uview-ui/components/u-radio/u-radio"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "拼团列表",
+  "usingComponents": {
+    "countdown": "/components/countdown/countdown"
+  }
+}

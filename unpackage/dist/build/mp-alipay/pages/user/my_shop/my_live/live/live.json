@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "发起直播",
+  "pullRefresh": false,
+  "usingComponents": {
+    "upload": "/components/upload/upload"
+  }
+}
