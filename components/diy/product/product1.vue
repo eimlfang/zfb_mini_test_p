@@ -1,0 +1,245 @@
+<template>
+	<view class="diy-product">
+		<view class="display__slide">
+			<template>
+				<scroll-view :scroll-top="scrollTop" scroll-x="true">
+					<view class="product-list" :class="['column__2']">
+						<view v-for="(product, index) in itemData.data" :key="index"
+							@click="gotoDetail(product.product_id)" style="position: relative">
+							<view class="product-item" v-if="product.hide != 1">
+								<view class="product-cover">
+									<image :src="product.product_image" mode="aspectFill"></image>
+									<view class="rexiao">
+										TOP{{index+1}}
+									</view>
+								</view>
+								<view class="product-info">
+									<view class="product-title" style="font-size: 28rpx;">
+										{{ product.product_name }}</view>
+									<view class="price d-s-c f12">
+										<view style="color: #FF6975;font-size: 28rpx;" >
+											<text>¥</text>
+											<text class="">{{ product.product_price }}/天起</text>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</scroll-view>
+			</template>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		components: {},
+		data() {
+			return {};
+		},
+		props: ['itemData'],
+		methods: {
+			scroll(e) {},
+
+			/*跳转产品详情*/
+			gotoDetail(e) {
+				let url = '/pages/product/detail/detail?product_id=' + e;
+				 uni.navigateTo({
+					url:url
+				});
+			}
+		},
+		created(){
+			console.log(this.itemData,89)
+		}
+	};
+</script>
+
+<style>
+	.rexiao{
+		position: absolute;
+		right:20rpx;
+		top: 10rpx;
+		background-image: linear-gradient(to right, #FD715A , #F25250);
+		border-radius: 50rpx;
+		width: 80rpx;
+		height: 40rpx;
+		color: white;
+		text-align: center;
+		line-height: 40rpx;
+		font-size: 20rpx;
+	}
+	.diy-product {
+		padding: 0 20rpx;
+	}
+
+	.diy-product .product-list.column__1 .product-item {
+		margin-bottom: 20rpx;
+		background: #ffffff;
+		width: 100%;
+	}
+	.theme-price{
+		color: #FF6975;
+	}
+	.diy-product .product-list.column__1 .product-item-box {
+		display: flex;
+		justify-content: flex-start;
+		align-items: stretch;
+	}
+
+	.diy-product .product-list .product-cover image {
+		width: 70%;
+		height: 95%;
+	}
+
+	.diy-product .product-list.column__1 .product-cover {
+		width: 240rpx;
+		height: 240rpx;
+		border-radius: 20rpx;
+		overflow: hidden;
+	}
+
+	.diy-product .product-list.column__1 .product-info {
+		margin: 20rpx 20rpx 20rpx 30rpx;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.diy-product .product-list .product-info .already-sale text {
+		padding: 4rpx 8rpx;
+		border-radius: 8rpx;
+		background: #f2f2f7;
+		color: #999;
+	}
+
+	.diy-product .product-list .product-title {
+		display: -webkit-box;
+		font-size: 32rpx;
+		overflow: hidden;
+		word-wrap: break-word;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
+
+	.diy-product .product-list.column__1 .product-title {
+		max-height: 80rpx;
+		line-height: 40rpx;
+	}
+
+	.diy-product .product-list.column__1 .selling-point {
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		line-height: 30rpx;
+		max-height: 60rpx;
+	}
+
+	.diy-product .product-list.column__1 .already-sale {
+		margin-top: 10rpx;
+	}
+
+	.diy-product .product-list.column__2 .product-title {
+		height: 80rpx;
+		line-height: 40rpx;
+		margin-top: 20rpx;
+		font-size: 26rpx;
+		margin-bottom: 20rpx;
+	}
+
+	.diy-product .product-list.column__3 .product-title {
+		margin-top: 20rpx;
+		margin-left: 10rpx;
+		margin-right: 10rpx;
+		height: 72rpx;
+		line-height: 36rpx;
+		font-size: 30rpx;
+	}
+
+	.diy-product .product-list.column__2 .product-info {
+		padding: 0 24rpx;
+	}
+
+	.diy-product .product-list .price {
+		font-size: 34rpx;
+	}
+
+	.diy-product .product-list.column__2 .price {
+		margin-top: 10rpx;
+		font-size: 30rpx;
+	}
+
+	.diy-product .product-list.column__3 .price {
+		margin-top: 10rpx;
+		padding: 0 10rpx;
+		font-size: 28rpx;
+	}
+
+	.diy-product .product-list.column__3 .price .text-d-line {
+		font-size: 22rpx;
+	}
+
+	.diy-product .product-list.column__2,
+	.diy-product .product-list.column__3 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+
+	.diy-product .column__2 .product-item {
+		width: 345rpx;
+		margin-right: 20rpx;
+		margin-bottom: 20rpx;
+		padding-bottom: 20rpx;
+		overflow: hidden;
+		background: #ffffff;
+		box-shadow: 0px 8rpx 3rpx 0px rgba(6, 0, 1, 0.03);
+		border-radius: 12rpx;
+	}
+
+	.diy-product .display__list .column__2 .product-item:nth-child(2n + 0) {
+		margin-right: 0;
+	}
+
+	.diy-product .column__2 .product-cover {
+		width: 220rpx;
+		height: 180rpx;
+		border-radius: 12rpx;
+		margin: 20rpx auto;
+	}
+
+	.diy-product .column__3 .product-item {
+		width: 230rpx;
+		margin-bottom: 10rpx;
+		margin-right: 10rpx;
+		padding-bottom: 10rpx;
+		border-radius: 8rpx;
+		overflow: hidden;
+		background: #ffffff;
+		box-shadow: 0 0 8rpx rgba(0, 0, 0, 0.1);
+	}
+
+	.diy-product .display__list .column__3 .product-item:nth-child(3n + 0) {
+		margin-right: 0;
+	}
+
+	.diy-product .column__3 .product-cover {
+		width: 200rpx;
+		height: 200rpx;
+	}
+
+	.diy-product .display__slide .product-list {
+		flex-wrap: nowrap;
+	}
+
+	.diy-product .display__slide .column__2 .product-item {
+		width: 200rpx;
+	}
+
+	.diy-product .display__slide .column__3 .product-item {
+		width: 200rpx;
+	}
+</style>

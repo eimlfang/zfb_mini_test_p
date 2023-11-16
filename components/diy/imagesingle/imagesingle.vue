@@ -1,0 +1,55 @@
+<template>
+	
+		<view
+			class="diy-imageSingle"
+			:style="
+				'padding-top: ' +
+					itemData.style.paddingTop +
+					'px;padding-bottom:' +
+					itemData.style.paddingTop +
+					'px; padding-left:' +
+					itemData.style.paddingLeft +
+					'px;padding-right:' +
+					itemData.style.paddingLeft +
+					'px;  background:' +
+					itemData.style.background
+			"
+		>
+		<view class="d-c-c" v-for="(imageSingle, index) in itemData.data" :key="index"  @click="gotoPages(imageSingle)">
+			<image :src="imageSingle.imgUrl" mode="widthFix"></image>
+			<!-- <view>
+				<image :src="imageSingle.imgUrl" mode="widthFix"></image>
+			</view> -->
+		</view>
+			
+		</view>
+</template>
+
+<script>
+	import config from '@/config.js'
+export default {
+	data() {
+		return {
+			margin:'0'
+		};
+	},
+	props: ['itemData'],
+	methods: {
+		/*跳转页面*/
+		gotoPages(e) {
+			// console.log(e,"URL");
+			// return
+			this.gotoPage(e.linkUrl);
+		}
+	},
+	mounted(){
+		
+	}
+};
+</script>
+
+<style>
+.diy-imageSingle image {
+	width: 100%;
+}
+</style>
