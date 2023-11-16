@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "sass": "^1.54.5",
+    "sass-loader": "^13.0.2"
+  },
+  "dependencies": {
+    "mini-html-parser2": "^0.3.0"
+  }
+}

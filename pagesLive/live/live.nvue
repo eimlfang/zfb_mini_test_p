@@ -1,0 +1,1188 @@
+<template>
+	<div class="nlv__container" v-if="winHeight!=''&&!loading" :style="'height:'+winHeight+' ;'">
+		<view class="nlv_main" v-if="!is_start">
+			<view>
+				<view class="notice_back_back" @click="goBack"><text class="icon iconfont icon-guanbi notice_jiantou">
+				<!-- #ifdef APP-PLUS -->
+				&#58921;
+				<!-- #endif -->
+				</text></view>
+				<view class="notice_back"><image class="notice_back_image" :src="roomDetail.share.file_path" mode="aspectFill" :style="'height:'+winHeight+' ;'"></image></view>
+				<view class="notice_content" :style="'height:'+winHeight+' ;'">
+					<view class="notice_content_imgbox"><image class="notice_content_img" :src="roomDetail.share.file_path" mode=""></image></view>
+					<text class="notice_title_t">{{roomDetail.name}}</text>
+					<text class="notice_title_c">——敬请期待——</text>
+					<view class="notice_title_b"><Countdown :config="countdownConfig"></Countdown></view>
+					<view class="d-a-c notice_btns">
+						<button class="notice_btn" open-type="share"><text class="notice_btn_txt">分享朋友</text></button>
+						<button class="notice_btn" @click="livePoster"><text class="notice_btn_txt">生成海报</text></button>
+					</view>
+				</view>
+				<view class="notice_share">
+					<share :winHeight="winHeight" v-if="qrcode!=null&!is_start" :qrcode="qrcode" @close="closeShare"></share>
+				</view>
+			</view>
+		</view>
+		<view class="nlv_main" v-if="is_start">
+			<view class="nlv-playerbox">
+				<live-room ref="liveRoom" :winHeight="winHeight" :winWidth="winWidth" :role="role" 
+					:is_replay="is_replay" :replay_url="replay_url" @showMsg="showMsg" />
+				<view class="nlv_topbar" :style="{ height: headerBarH, 'padding-top': statusBarH }">
+					<view class="topbar-right"><text class="topbar_ico icon iconfont icon-guanbi" @tap="closeLive">
+					<!-- #ifdef APP-PLUS -->
+		&#58921;
+					<!-- #endif -->
+					</text></view>
+					<view class="topbar-info">
+						<view class="avator-box">
+							<image class="ta-avator" @tap="openAnchor" :src="roomDetail.supplier.logo.file_path" mode="aspectFill" />
+							<view class="tabox"><text class="ta-name">{{roomDetail.supplier.name}}</text><text class="ta-num">{{roomDetail.view_num}}观看</text></view>
+							<text class="ta-gz" :class="hasFollow ? 'ta-gz-on' : ''" @tap="followFunc()" v-if="!isCaster">{{hasFollow ? '已关注' : '关注'}}</text>
+						</view>
+					</view>
+				</view>
+				<view class="nlv-rankbox" :style="{top: headerBarH}">
+					<view class="nlv-rkls" @click="openRank">
+						<text class="rkitem">{{gift_name}}：{{roomDetail.gift_num}}</text>
+					</view>
+					<view class="nlv-rkls">
+						<text class="rkitem ml30">人气值：{{digg_num}}</text>
+					</view>
+				</view>
+				<view class="nlv-footToolbar">
+					<view class="nlv-giftTipPanel" v-if="giftInfo.nickName!=''">
+						<view class="giftip-item">
+							<image class="gt-avator" :src="giftInfo.avatarUrl" mode="aspectFill" />
+							<view class="gt-info"><text class="gt-tit">{{giftInfo.nickName}}</text><text class="gt-subtit">送主播{{giftInfo.giftName}}</text></view>
+							<image class="gt-gift" :src="giftInfo.giftImage" mode="aspectFill" />
+						</view>
+					</view>
+					<scroll-view class="nlv-rollMsgPanel" :scroll-into-view="toMsg" scroll-y show-scrollbar="false">
+						<block v-for="(item, index) in commentsList" :key="index">
+							<view class="nlv-msglist">
+								<view class="msg_bg" :id="'comment'+index">
+									<view class="msg_text" v-if="item.type=='text'">
+										<text class="msg_name">{{item.nickName}}:</text><text class="msg_txt">{{item.msg}}</text>
+									</view>
+									<view class="msg_text" v-if="item.type=='enter'">
+										<text class="msg_name ">{{item.nickName}}</text><text class="msg_txt">来了</text>
+									</view>
+								</view>	
+							</view>
+						</block>
+					</scroll-view>
+					<view class="nlv-infobox">
+						<view class="nlv_reply" @tap="handleRollMsg(index)"><text class="nlv_reply_text">说点什么...</text></view>
+						<view class="nlv_btntool">
+							<!-- #ifdef APP-PLUS -->
+							<view class="btn-toolitem" @tap="handleLiveCart()"><text class="icon iconfont icon-gouwu i-btntool" style="color: #ff4e0e;font-size: 20px;">&#59502;</text></view>
+							<view class="btn-toolitem btn-toolitem-cart" @tap="handleLiveGift" v-if="!isCaster"><text class="iconfont icon icon-libao i-btntool">&#58889;</text></view>
+							<button class="btn-toolitem" @tap="openShare"><text class="icon iconfont icon-share1 i-btntool">&#58959;</text></button>
+							<view class="btn-toolitem" v-if="isCaster" @tap="openMore"><text class="icon iconfont icon-caidan i-btntool">&#59112;</text></view>
+							<view class="btn-toolitem" @tap='digg' v-if="!isCaster"><text class="icon iconfont icon-31guanzhu1xuanzhong i-btntool">&#58965;</text></view>
+							<!-- #endif -->
+							<!-- #ifndef APP-PLUS -->
+							<view class="btn-toolitem" @tap="handleLiveCart()"><text class="icon iconfont icon-gouwu i-btntool" style="color: #ff4e0e;font-size: 20px;"></text></view>
+							<view class="btn-toolitem btn-toolitem-cart" @tap="handleLiveGift" v-if="!isCaster"><text class="iconfont icon icon-libao i-btntool"></text></view>
+							<button class="btn-toolitem" @tap="openShare"><text class="icon iconfont icon-share1 i-btntool"></text></button>
+							<view class="btn-toolitem" v-if="isCaster" @tap="openMore"><text class="icon iconfont icon-caidan i-btntool"></text></view>
+							<button class="btn-toolitem" @tap='digg' v-if="!isCaster"><text class="icon iconfont icon-31guanzhu1xuanzhong i-btntool"></text></button>
+							<!-- #endif -->
+						</view>
+					</view>
+				</view>
+			</view>
+			<!--商品-->
+			<div class="product" v-if="explain_product != null && !is_replay" @tap="gotoProduct">
+				<div class="product-pic">
+					<image :src="explain_product.product_image" class="product-img"></image>
+				</div>
+				<div class="product-price">
+					<text class="f24 rose">￥</text><text class="rose f28">{{ explain_product.product_price }} </text>
+				</div>
+			</div>
+			<share :winHeight="winHeight" v-if="qrcode!=null" :qrcode="qrcode" @close="closeShare"></share>
+		</view>
+		<Likes ref='likes'></Likes>
+		<live-cart ref="liveCart" :isCaster="isCaster" :shop_supplier_id="roomDetail.shop_supplier_id" :room_id="room_id"
+		 @openOrder="openOrder" @setProduct="setProduct" />
+		<live-gift ref="liveGift" :room_id="room_id" :gift_name="gift_name" :giftList="giftList" @openPlan="openPlan"
+		 @sendGift="sendGift" />
+		<live-msg ref="liveMsg" :emojiData="emojiData" @closeMsg="closeMsg" />
+		<live-plan ref="livePlan" @closePlan="closePlan" :gift_name="gift_name" />
+		<live-order ref="liveOrder" :shop_supplier_id="roomDetail.shop_supplier_id" :room_id="room_id" @closeOrder="closeOrder" />
+		<live-anchor ref="liveAnchor" :room_id="room_id" :shop_supplier_id="roomDetail.shop_supplier_id" @changeFollow="changeFollow" />
+		<live-more ref="liveMore" @liveSet="liveSet" />
+		<live-share ref="liveShare" @livePoster='livePoster' />
+		<live-rank ref="liveRank" :room_id="room_id" />
+		<!-- app分享 -->
+		<AppShare ref="appShare" :appParams="appParams"></AppShare> 
+	</div>
+</template>
+
+<script>
+	import utils from '@/common/utils.js';
+	import liveCart from './live-part/liveCart';
+	import liveGift from './live-part/liveGift';
+	import liveRoom from './live-part/liveRoom';
+	import liveMsg from './live-part/liveMsg';
+	import livePlan from './live-part/livePlan';
+	import liveOrder from './live-part/liveOrder';
+	import liveAnchor from './live-part/liveAnchor';
+	import liveMore from './live-part/liveMore';
+	import liveShare from './live-part/liveShare';
+	import liveRank from './live-part/liveRank';
+	import Likes from './live-part/likes/index';
+	import share from './live-part/dialog/share';
+	import emoji from './live-part/emoji.js';
+	import Countdown from './live-part/countdown_nvue';
+	import AppShare from './live-part/app-nvue-share';
+	let timer = null;
+	export default {
+		components: {
+			liveCart,
+			liveGift,
+			liveRoom,
+			liveMsg,
+			livePlan,
+			liveOrder,
+			liveAnchor,
+			liveMore,
+			liveShare,
+			liveRank,
+			Likes,
+			share,
+			Countdown,
+			AppShare
+		},
+		data() {
+			return {
+				statusBarH: '',
+				headerBarH: '',
+				winHeight: '',
+				winWidth: '',
+				videoIndex: 0,
+				clickNum: 0, //记录点击次数
+				giftipShowist: [],
+				sence: '', //场景，create:主播，观众
+				room_id: 0, //房间id,
+				shop_supplier_id: 0,
+				role: '',
+				loading: true,
+				/*消息列表*/
+				commentsList: [],
+				maxCommentSize: 100,
+				roomDetail: {},
+				gift_name: '',
+				/*礼物数*/
+				gift_num: 0,
+				hasFollow: false,
+				giftList: [],
+				//是否是主播
+				isCaster: false,
+				// 当前用户
+				user: {},
+				// 礼物信息
+				giftInfo: {
+					nickName: '',
+					avatarUrl: '',
+					giftName: '',
+					giftImage: ''
+				},
+				/*当前讲解商品ID*/
+				explain_product_id: '',
+				/*当前讲解商品*/
+				explain_product: null,
+				num: 0,
+				digg_num: 0,
+				digg_times: 5,
+				digg_timer: null,
+				is_replay: false,
+				replay_url: '',
+				is_start: false,
+				qrcode: null,
+				toMsg: '',
+				emojiData: [],
+				/*倒计时配置*/
+				countdownConfig: {
+					/*开始时间*/
+					startstamp: 0,
+					/*结束时间*/
+					endstamp: 0,
+					/*标题*/
+					title: ''
+				},
+				/*app分享*/
+				isAppShare: false,
+				appParams:{
+					title: '',
+					summary: '',
+					path: ''
+				},
+			}
+		},
+		beforeCreate() {
+			// #ifdef APP-PLUS
+			const domModule = weex.requireModule('dom')
+			domModule.addRule('fontFace', {
+				fontFamily: "iconfont",
+				'src': "url('"+getApp().globalData.vueObj.font_url+"')"
+			});
+			console.log(getApp().globalData.vueObj.font_url);
+			// #endif
+		},
+		created() {
+			let _sH = uni.getSystemInfoSync().statusBarHeight;
+			let _hH = _sH + 50;
+			let _wH = uni.getSystemInfoSync().windowHeight;
+			let _wW = uni.getSystemInfoSync().windowWidth;
+			this.statusBarH = `${_sH}px`;
+			this.headerBarH = `${_hH}px`;
+			this.winHeight = `${_wH}px`;
+			this.winWidth = `${_wW}px`;
+		},
+		onLoad(options) {
+			let scene = utils.getSceneData(options);
+			this.room_id = options.room_id ? options.room_id : scene.rid;
+			this.role = options.sence == 'create' ? 'broadcaster' : 'audience';
+			if (this.role == 'broadcaster') {
+				this.isCaster = true;
+			}
+			// 保持屏幕常亮
+			uni.setKeepScreenOn({
+				keepScreenOn: true
+			});
+		},
+		onReady() {
+			this.getRoomInfo();
+		},
+		/**
+		 * 生命周期函数--监听页面卸载
+		 */
+		onUnload: function() {
+			this.is_start && this.$refs.liveRoom.clear();
+		},
+		onShow(){
+			if(this.$refs.liveRoom){
+				this.$refs.liveRoom.show();
+			}
+		},
+		methods: {
+			/*请求对象*/
+			getRequest(){
+				let self = this;
+				// #ifdef APP-PLUS
+				return getApp().globalData.vueObj;
+				// #endif
+				// #ifndef APP-PLUS
+				return self;
+				// #endif
+			},
+			/*获取直播间信息*/
+			getRoomInfo() {
+				let self = this;
+				uni.showLoading({
+					title: '正在进入'
+				});
+				self.getRequest()._post(
+					'plus.live.room/detail', {
+						room_id: self.room_id,
+					},
+					function(res) {
+						uni.hideLoading();
+						self.loading = false;
+						self.roomDetail = res.data.model;
+						self.gift_name = res.data.gift_name;
+						self.hasFollow = res.data.hasFollow;
+						self.digg_num = res.data.model.digg_num;
+						self.countdownConfig.endstamp = self.roomDetail.start_time;
+						self.user = res.data.user;
+						// 已结束并且有回放
+						if(self.roomDetail.live_status == 103){
+							self.is_replay = true;
+							if(self.roomDetail.record_url != ''){
+								self.replay_url = self.roomDetail.record_url;
+							}else{
+								uni.showModal({
+								    title: '提示',
+								    content: '暂无回放地址',
+								    success: function (res) {
+								        uni.navigateBack();
+								    }
+								});
+								return;
+							}
+						}
+						// 已开始
+						if(self.roomDetail.live_status == 101 || self.roomDetail.live_status == 103){
+							self.is_start = true;
+						}
+						// 不是回放
+						if(!self.is_replay){
+							let canJoin = false;
+							// 主播,未开始或者直播中
+							if(self.isCaster && (self.roomDetail.live_status == 101 || self.roomDetail.live_status == 102)){
+								canJoin = true;
+							}
+							// 不是主播，直播中可进
+							if(!self.isCaster && self.roomDetail.live_status == 101){
+								canJoin = true;
+							}
+							if(canJoin){
+								self.is_start = true;
+								self.initRoom();
+								setTimeout(function() {
+									self.$refs.liveRoom.start(self.roomDetail, self.user);
+									self.initProduct();
+								}, 2000);
+							}
+						}
+					}
+				);
+			},
+			initRoom(){
+				this.getGift();
+				this.initemoji();
+			},
+			/*显示讲解的商品*/
+			showProduct(product_id) {
+				let self = this;
+				self.explain_product_id = product_id;
+				self.getRequest()._get(
+					'plus.live.room/product_detail', {
+						product_id: self.explain_product_id
+					},
+					function(res) {
+						self.explain_product = res.data.model;
+					}
+				);
+			},
+			initProduct() {
+				if (this.roomDetail.currentProduct) {
+					this.explain_product = {
+						product_image: this.roomDetail.currentProduct.image[0].file_path,
+						product_price: this.roomDetail.currentProduct.product_price,
+						product_id: this.roomDetail.currentProduct.product_id
+					};
+				}
+			},
+			/*跳转商品详情*/
+			gotoProduct(e) {
+				let url = '/#/pages/product/detail/detail?product_id=' + this.explain_product.product_id + '&room_id=' + this.room_id;
+				uni.navigateTo({
+					url: url
+				});
+			},
+			handleSlider(e) {
+				let curIndex = e.detail.current
+				if (this.videoIndex >= 0) {
+					this.videoContextList[this.videoIndex].pause()
+					this.videoContextList[this.videoIndex].seek(0)
+				}
+				if (curIndex === this.videoIndex + 1) {
+					this.videoContextList[this.videoIndex + 1].play()
+				} else if (curIndex === this.videoIndex - 1) {
+					this.videoContextList[this.videoIndex - 1].play()
+				}
+				this.videoIndex = curIndex
+			},
+			play(index) {
+				this.videoContextList[index].play()
+			},
+			pause(index) {
+				this.videoContextList[index].pause()
+			},
+			handleAttention(index) {
+				let vlist = this.vlist
+				vlist[index].attention = !vlist[index].attention
+				this.vlist = vlist
+			},
+			handleLiveCart() {
+				this.$refs.liveCart.show()
+			},
+			handleLiveGift() {
+				this.$refs.liveGift.show()
+			},
+			closeLive() {
+				let self = this;
+				if (self.is_replay) {
+					uni.redirectTo({
+						url: '/pagesLive/live/index'
+					});
+				} else {
+					if (self.role == 'broadcaster') {
+						uni.showModal({
+							title: '提示',
+							content: '确定要结束当前直播吗?',
+							success: function(o) {
+								if (o.confirm) {
+									// 停止录制
+									self.getRequest()._post('plus.live.agora.api/record_stop', {
+										room_id: self.room_id
+									}, function(res) {
+
+									});
+									console.log('record_stop');
+									// 结束
+									self.getRequest()._post(
+										'plus.live.room/set_status', {
+											room_id: self.room_id,
+											status: 103
+										},
+										function(res) {
+											console.log('set_status');
+											// 修改房间状态
+											self.$refs.liveRoom.exit('over');
+										}
+									);
+								}
+							}
+						});
+					} else {
+						self.$refs.liveRoom.exit('auto');
+					}
+				}
+			},
+			handleRollMsg() {
+				this.$refs.liveMsg.show();
+			},
+			closeMsg(e) {
+				let self = this;
+				let msg = {
+					type: 'text',
+					msg: e,
+					nickName: self.user.nickName
+				};
+				self.$refs.liveRoom.sendMsg(JSON.stringify(msg));
+			},
+			showMsg(msg) {
+				let self = this;
+				let json = JSON.parse(msg);
+				// 文本消息
+				if (json.type == 'text') {
+					self.commentsList.push(json);
+					self.removeComment();
+				} else if (json.type == 'enter') {
+					self.commentsList.push(json);
+					self.removeComment();
+					self.roomDetail.view_num++;
+				} else if (json.type == 'gift') {
+					self.giftInfo = {
+						nickName: json.nickName,
+						avatarUrl: json.avatarUrl,
+						giftName: self.getGiftName(json.msg),
+						giftImage: self.getGiftImage(json.msg)
+					};
+					setTimeout(function() {
+						self.giftInfo = {
+							nickName: ''
+						};
+					}, 5000);
+				} else if (json.type == 'views') {
+					self.roomDetail.view_num = json.views;
+					self.roomDetail.digg_num = json.digg_num;
+				} else if (json.type == 'digg') {
+					self.digg_num = json.digg_num;
+				} else if (json.type == 'over') {
+					self.$refs.liveRoom.exit('over');
+				} else if (json.type == 'explain') {
+					// 显示讲解
+					self.showProduct(json.msg);
+				} else if(json.type == 'gift_num'){
+					self.roomDetail.gift_num = json.msg;
+				}
+			},
+			removeComment() {
+				let self = this;
+				let len = self.commentsList.length - self.maxCommentSize;
+				if (len > 0) {
+					for (let i = 0; i < len; i++) {
+						self.commentsList.shift();
+					}
+				}
+				self.toMsg = 'comment' + (self.commentsList.length - 1);
+			},
+			/*获取礼物类别*/
+			getGift() {
+				let self = this;
+				self.getRequest()._get('plus.live.room/gift', {}, function(res) {
+					let list = [],
+						min = [],
+						num = 0;
+					for (let i = 0; i < res.data.list.length; i++) {
+						num++;
+						min.push(res.data.list[i]);
+						if (num >= 8) {
+							list.push(min);
+							min = [];
+							num = 0;
+						}
+					}
+					if (min.length > 0) {
+						list.push(min);
+					}
+					self.giftList = list;
+				});
+			},
+			openPlan() {
+				this.$refs.livePlan.show();
+			},
+			closePlan() {
+				this.$refs.liveGift.show();
+			},
+			openOrder() {
+				this.$refs.liveOrder.show();
+			},
+			closeOrder() {
+				this.$refs.liveCart.show();
+			},
+			setProduct(e) {
+				let self = this;
+				let msg = {
+					type: 'explain',
+					msg: e
+				};
+				self.$refs.liveRoom.sendMsg(JSON.stringify(msg));
+			},
+			/*关注*/
+			followFunc() {
+				let self = this;
+				self.getRequest()._post(
+					'user.Favorite/add', {
+						shop_supplier_id: self.shop_supplier_id,
+						pid:self.shop_supplier_id,
+						type: 10
+					},
+					function(res) {
+						self.hasFollow = !self.hasFollow;
+					}
+				);
+			},
+			openAnchor() {
+				this.$refs.liveAnchor.show();
+			},
+			changeFollow(e) {
+				this.hasFollow = e;
+			},
+			openMore() {
+				this.$refs.liveMore.show();
+			},
+			openShare(e) {
+				let self = this;
+				//#ifndef APP-PLUS
+				self.$refs.liveShare.show();
+				//#endif
+				//#ifdef APP-PLUS
+				self.appParams.title = self.roomDetail.name;
+				self.appParams.summary = self.roomDetail.name;
+				// 构建页面参数
+				let params = self.getRequest().getShareUrlParams({
+					room_id: self.room_id,
+					sence: 'audience'
+				});
+				self.appParams.path = '/pagesLive/live/live?' + params;
+				self.appParams.image = self.roomDetail.share.file_path;
+				self.$refs.appShare.show();
+				//#endif
+			},
+			/*直播设置*/
+			liveSet(e) {
+				this.$refs.liveRoom.liveSet(e);
+			},
+
+			openRank() {
+				this.$refs.liveRank.show();
+			},
+			/*发送礼物*/
+			sendGift(e) {
+				let self = this;
+				let msg_arr = e.split(',');
+				let msg = {
+					type: 'gift',
+					msg: msg_arr[0],
+					nickName: self.user.nickName,
+					avatarUrl: self.user.avatarUrl
+				};
+				self.$refs.liveRoom.sendMsg(JSON.stringify(msg));
+				let show_msg = {
+					type: 'gift_num',
+					msg: msg_arr[1]
+				};
+				self.$refs.liveRoom.sendMsg(JSON.stringify(show_msg));
+			},
+			/*礼物转换*/
+			getGiftName(id) {
+				let name = '';
+				for (let key in this.giftList) {
+					for (let i = 0; i < this.giftList[key].length; i++) {
+						let item = this.giftList[key][i];
+						if (parseInt(id) === item.gift_id) {
+							name = item.gift_name;
+							break;
+						}
+					}
+				}
+				return name;
+			},
+			/*礼物转换*/
+			getGiftImage(id) {
+				let url = '';
+				for (let key in this.giftList) {
+					for (let i = 0; i < this.giftList[key].length; i++) {
+						let item = this.giftList[key][i];
+						if (parseInt(id) === item.gift_id) {
+							url = item.file_path;
+							break;
+						}
+					}
+				}
+				return url;
+			},
+			/* 点赞 */
+			digg() {
+				let self = this;
+				self.$refs.likes.handleClick()
+				self.digg_num++;
+				self.getRequest()._get('plus.live.room/digg', {
+					room_id: self.room_id,
+					num: 1
+				}, function(res) {
+					let msg = {
+						type: 'digg',
+						digg_num: res.data.digg_num
+					};
+					self.$refs.liveRoom.sendMsg(JSON.stringify(msg));
+				});	
+			},
+			livePoster() {
+				let self = this;
+				uni.showLoading({
+					title: '加载中',
+				});
+				let source = 'wx';
+				//#ifdef H5
+				source = 'mp';
+				//#endif
+				self.getRequest()._get('plus.live.Room/poster', {
+					room_id: self.room_id,
+					source: source
+				}, (result) => {
+					self.qrcode = result.data.qrcode;
+					console.log(self.qrcode);
+				}, null, () => {
+					uni.hideLoading();
+				});
+			},
+			/**/
+			closeShare() {
+				this.qrcode = null;
+			},
+			/*分享*/
+			onShareAppMessage() {
+				let self = this;
+				// 构建页面参数
+				let params = self.getRequest().getShareUrlParams({
+					room_id: self.room_id,
+					sence: 'audience'
+				});
+				return {
+					title: self.roomDetail.name,
+					path: '/pagesLive/live/live?' + params,
+					imageUrl: self.roomDetail.share.file_path
+				};
+			},
+			initemoji() {
+				let page = Math.ceil(emoji.length / 21);
+				for (let i = 0; i < page; i++) {
+					this.emojiData[i] = [];
+					for (let k = 0; k < 21; k++) {
+						emoji[i * 21 + k] ? this.emojiData[i].push(
+							emoji[i * 21 + k]
+						) : ''
+					}
+				}
+			},
+			goBack(){
+				uni.redirectTo({
+					url: '/pagesLive/live/index'
+				});
+			},
+		}
+	}
+</script>
+<style scoped>
+	.iconfont {
+		font-family: iconfont;
+	}
+	
+	image {
+		border: 0;
+		display: inline-block;
+		vertical-align: top;
+		max-width: 100%;
+		position: relative;
+	}
+
+	.avator-scrollbox .avator-scroll .mr_20 {
+		margin-right: -20rpx;
+	}
+
+	
+	.nlv__container {
+		flex: 1;
+		height: 100%;
+	}
+
+	.nlv_topbar {
+		flex: 1;
+		flex-direction: row;
+		align-items: center;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		z-index: 1001;
+	}
+
+	.topbar-info {
+		flex: 1;
+		flex-direction: row;
+		align-items: center;
+		padding-left: 20rpx;
+		flex-flow: column;
+		align-items: baseline;
+		padding-top: 10rpx;
+	}
+
+	.avator-box {
+		background-color: rgba(0, 0, 0, .4);
+		border-radius: 30rpx;
+		flex-direction: row;
+		align-items: center;
+		padding-right: 6rpx;
+		height: 60rpx;
+		margin-bottom: 20rpx;
+	}
+
+	.ta-avator {
+		border-radius: 50%;
+		margin-right: 10upx;
+		height: 60rpx;
+		width: 60rpx;
+	}
+
+	.tabox {
+		text-overflow: ellipsis;
+		width: 150rpx;
+		line-height: 27rpx;
+	}
+
+	.ta-name {
+		color: #fff;
+		font-size: 24rpx;
+	}
+
+	.ta-num {
+		color: #fff;
+		font-size: 24rpx;
+	}
+
+	.ta-gz {
+		background-image: linear-gradient(to right, #ff540a, #ff0f33);
+		border-radius: 40rpx;
+		color: #fff;
+		font-size: 24rpx;
+		text-align: center;
+		padding: 8rpx 0;
+		width: 90rpx;
+	}
+
+	.ta-gz-on {
+		background-color: rgba(255, 255, 255, .2);
+		background-image: none;
+	}
+
+	.avator-scroll {
+		padding-left: 20rpx;
+		/* #ifndef APP-PLUS-NVUE */
+		white-space: nowrap;
+		/* #endif */
+		flex-direction: row;
+		padding: 0 10rpx;
+		height: 60rpx;
+		width: 230rpx;
+	}
+
+	.member-num {
+		background-color: rgba(0, 0, 0, .4);
+		border-radius: 40rpx;
+		color: #fff;
+		font-size: 24rpx;
+		text-align: center;
+		padding: 10rpx 14rpx;
+	}
+
+	.topbar-right {
+		flex-direction: row;
+		margin-top: -10rpx;
+	}
+
+	.topbar_ico {
+		color: #fff;
+		font-size: 40rpx;
+		padding: 15rpx;
+		position: relative;
+		z-index: 1001;
+	}
+
+	.nlv-rankbox {
+		position: absolute;
+		left: 0;
+		right: 0;
+		z-index: 1001;
+		direction:ltr;
+		flex-direction: row;
+	}
+
+	.nlv-rkls {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.rkitem {
+		background-image: linear-gradient(to right, rgba(255, 56, 166, .5), rgba(57, 159, 255, .5));
+		border-radius: 40rpx;
+		color: #fff;
+		font-size: 24rpx;
+		margin-left: 20rpx;
+		padding: 4rpx 10rpx;
+	}
+
+	.nlv-uid {
+		color: rgba(255, 255, 255, .5);
+		font-size: 28rpx;
+		position: absolute;
+		right: 20rpx;
+		top: 0;
+	}
+
+	.nlv_main {
+		flex: 1;
+		height: 100%;
+	}
+
+	.nlv-swiper {
+		flex: 1;
+	}
+
+	.nlv-playerbox {
+		flex: 1;
+	}
+
+	.player-video {
+		height: 100%;
+		width: 100%;
+	}
+
+	.nlv-footToolbar {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	.nlv-giftTipPanel {
+		flex-direction: column;
+		margin-left: 20rpx;
+		margin-bottom: 180rpx;
+	}
+
+	.giftip-item {
+		background-color: rgba(0, 0, 0, .3);
+		border-radius: 100rpx;
+		padding: 8rpx;
+		padding-right: 100rpx;
+		flex-direction: row;
+		align-items: center;
+		width: 410rpx;
+		margin-top: 10rpx;
+	}
+
+	.gt-avator {
+		border-radius: 50%;
+		height: 72rpx;
+		width: 72rpx;
+	}
+
+	.gt-info {
+		padding: 0 20rpx;
+		overflow: hidden;
+		width: 230rpx;
+	}
+
+	.gt-tit {
+		color: #fff;
+		font-size: 28rpx;
+		overflow: hidden;
+		height: 40rpx;
+		line-height: 40rpx;
+	}
+
+	.gt-subtit {
+		color: rgba(255, 255, 255, .7);
+		font-size: 24rpx;
+		letter-spacing: 4rpx;
+	}
+
+	.gt-gift {
+		height: 100rpx;
+		width: 100rpx;
+		position: absolute;
+		top: -6rpx;
+		right: 35rpx;
+	}
+
+	.nlv-rollMsgPanel {
+		margin-left: 20rpx;
+		margin-bottom: 20rpx;
+		height: 400rpx;
+		width: 500rpx;
+	}
+
+	.nlv-msglist {
+		margin-top: 10rpx;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.msg_bg {
+		background-color: rgba(0, 0, 0, .3);
+		border-radius: 24rpx;
+		padding: 8rpx 14rpx;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.msg_name {
+		color: #fff81f;
+		font-size: 28rpx;
+	}
+
+	.msg_text {
+		color: rgba(255, 255, 255, 1);
+		font-size: 28rpx;
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		flex-wrap: wrap;
+		overflow: hidden;
+		width: 450rpx;
+		direction:ltr;
+		flex-direction: row;
+		/* width: 476rpx; */
+	}
+	.msg_txtxt{
+		color: rgba(255, 255, 255, 1);
+		font-size: 28rpx;
+		height: 28rpx;
+	}
+	.nlv-infobox {
+		padding: 20rpx;
+		flex: 1;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.nlv_reply {
+		flex: 1;
+		flex-direction: row;
+		background-color: rgba(0, 0, 0, .3);
+		border-radius: 50rpx;
+		padding: 23rpx;
+	}
+
+	.nlv_reply_text {
+		color: #fff;
+		font-size: 30rpx;
+	}
+
+	.nlv_btntool {
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+
+	.btn-toolitem {
+		display: flex;
+		background-color: rgba(0, 0, 0, .3);
+		border-radius: 50%;
+		align-items: center;
+		justify-content: center;
+		margin-left: 10rpx;
+		height: 75rpx;
+		width: 75rpx;
+		text-align: center;
+		line-height: 75rpx;
+		border-width: 0;
+	}
+
+	.btn-toolitem-cart {
+		background-image: linear-gradient(to right, #ff955d, #f93b37);
+	}
+
+	.i-btntool {
+		color: #fff;
+		font-size: 40rpx;
+	}
+
+	.avator-scrollbox {
+		flex-direction: initial;
+		margin-left: -75rpx;
+	}
+
+	.product {
+		position: fixed;
+		bottom: 140rpx;
+		right: 20rpx;
+		background-color: #fff;
+		padding: 10rpx;
+		z-index: 99;
+		border-radius: 15rpx;
+	}
+
+	.product-pic {
+		width: 200rpx;
+		height: 200rpx;
+	}
+
+	.product-img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.product-price {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-top: 10rpx;
+	}
+
+	.diggnum {
+		width: 74rpx;
+		height: 22rpx;
+		font-size: 20rpx;
+		background-color: #F93B37;
+		color: #FFFFFF;
+		text-align: center;
+		line-height: 22rpx;
+		border-radius: 11rpx;
+		position: absolute;
+		top: -28rpx;
+		left: 0;
+	}
+	.notice_back_image{
+		position:absolute;
+		top: 0;
+		left: 0;
+		width: 750rpx;
+	}
+	.notice_content{
+		text-align: center;
+		padding-top: 340rpx;
+		background-color:rgba(0,0,0,0.6);
+	}
+	.notice_content_img{
+		width: 200rpx;
+		height: 200rpx;
+		margin: 0 auto;
+		margin-bottom: 44rxp;
+	}
+	.notice_content_imgbox{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.notice_btn{
+		width: 250rpx;
+		height: 80rpx;
+		border-style: solid;
+		border-width: 1rpx;
+		border-color: #fb4b70;
+		line-height: 80rpx;
+		text-align: center;
+		border-radius: 40rpx;
+		background: none;
+		
+	}
+	.notice_btn_txt{
+		color: #fb4d70;
+	}
+	.notice_btns{
+		flex-direction: row
+	}
+	.notice_title_t{
+		text-align: center;
+		color: #FFFFFF;
+		font-size: 34rpx;
+		height: 120rpx;
+		line-height: 120rpx;
+	}
+	.notice_title_c{
+		text-align: center;
+		color: #FFFFFF;
+		font-size: 22rpx;
+		height: 38rpx;
+		line-height: 38rpx;
+	}
+	.notice_title_b{
+		text-align: center;
+		color: #FFFFFF;
+		font-size: 26rpx;
+		height: 120rpx;
+		line-height: 120rpx;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.notice_share{
+		position: absolute;
+		top: 0;
+	}
+	.notice_jiantou{
+		transform: rotate(180deg);
+		color: #ffffff;
+	}
+	.notice_back{
+		width: 750rpx;
+		color: #ffffff;
+		display: flex;
+		flex-direction: initial;
+		position: absolute;
+		top: 32px;
+		z-index: 0;
+		font-size: 30rpx;
+		align-items: center;
+		justify-content: center;
+	}
+	.notice_back_back{
+		text-align: left;
+		    position: absolute;
+		    top: 70rpx;
+			left: 45rpx;
+		    z-index: 1;
+	}
+	.icon-guanbi{
+		color: #FFFFFF;
+	}
+		
+	.icon-jiantou{
+		color: #FFFFFF;
+	}
+	.msg_txt{
+		color: #FFFFFF;
+		font-size: 28rpx;
+	}
+	.red{
+		color: #E22319;
+	}
+</style>
